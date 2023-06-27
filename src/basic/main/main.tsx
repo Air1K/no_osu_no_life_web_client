@@ -1,10 +1,17 @@
 import React from 'react';
+import Logo from "./logo/logo";
+import {Container} from "react-bootstrap";
 
 const Main = () => {
     return (
-        <main>
-            Тело
-        </main>
+        <div>
+
+                <Logo/>
+
+            <main>
+                Телоss
+            </main>
+        </div>
     );
 };
 

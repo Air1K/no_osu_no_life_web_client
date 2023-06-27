@@ -1,33 +1,48 @@
 import React from 'react';
 import styles from './header.module.sass'
-import {Navbar, Nav, Container, Row, Col, Button} from "react-bootstrap";
+import {Navbar, Nav, Container, NavDropdown, Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {BiUser} from "react-icons/bi"
+
 const Header = () => {
     return (
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className={`${styles.head} fixed-top w-100`}>
+            <Container className={styles.heads}>
+                <Navbar.Brand>
+                    No osu! - No life
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                <Navbar.Collapse id="responsive-navbar-nav" className={"px-40"}>
+                    <Nav className="me-auto my-2 my-lg-0 text-sm-center">
+                        <Link to="/" className={`nav-link navbar-text text-nowrap`}>Главное окно</Link>
+                        <NavDropdown title="Общение" id="basic-nav-dropdown">
+                            <Link to="/discussions" className={"dropdown-item text-sm-center"}>Обсуждения</Link>
+                            <Link to="/comments" className={`dropdown-item text-sm-center`}>Жалобы на участников</Link>
+                            <Link to="/comments" className={`dropdown-item text-sm-center`}>Комментарии сервера</Link>
+                        </NavDropdown>
+                        <NavDropdown title="Тематика osu" id="basic-nav-dropdown">
+                            <Link to="/comments" className={`dropdown-item text-sm-center`}>Скины</Link>
+                            <Link to="/comments" className={`dropdown-item text-sm-center`}>Карты</Link>
+                            <Link to="/comments" className={`dropdown-item text-sm-center`}>Ваши предложения</Link>
+                            <Link to="/discussions" className={"dropdown-item text-sm-center"}>Рейтинг</Link>
+                        </NavDropdown>
+                        <Link to="/links" className={`nav-link navbar-text text-nowrap`}>Полезные ссылки</Link>
+                        <Nav.Link onClick={() => {
+                            window.open("https://www.facebook.com/", "_blank")
+                        }} target="_blank">
+                            {/*<Link to="/links" className={`nav-link navbar-text`}>Поддержка</Link>*/}
+                            Поддержка
+                        </Nav.Link>
+                        <Link to="/links" className={`nav-link navbar-text text-nowrap`}>О нас</Link>
+                    </Nav>
 
-                <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className={styles.head}>
-                    <Container className={styles.heads}>
-                    <Navbar.Brand>
-                            No osu! - No life
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                        <Navbar.Collapse id="responsive-navbar-nav" className={"px-40"}>
-                            <Nav className="me-auto my-2 my-lg-0">
-                                <Nav.Link><Link to="/main" className={`nav-link`}>Главное окно</Link></Nav.Link>
-                                <Nav.Link><Link to="/discussions" className={`nav-link`}>Обсуждения</Link></Nav.Link>
-                                <Nav.Link><Link to="/comments" className={`nav-link`}>Комментарии сервера</Link></Nav.Link>
-                                <Nav.Link><Link to="/links" className={`nav-link`}>Полезные ссылки</Link></Nav.Link>
-                                <Nav.Link><a href={"https://www.donationalerts.com/r/lolioosu"} className={`nav-link`}>Поддержка</a></Nav.Link>
-                            </Nav>
-
-                            <Nav className="mr-auto">
-                                <Button variant="btn btn-link">Log In</Button>
-                                <Button variant="btn btn-link">Sign Out</Button>
-                            </Nav>
-                        </Navbar.Collapse>
-                        </Container>
-                </Navbar>
+                    <Nav className={`mr-auto text-nowrap`}>
+                        <Button variant="btn btn-light"><BiUser/>log In</Button>
+                        {/*<Button variant="btn btn-link">Sign Out</Button>*/}
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
 
     );
 };
