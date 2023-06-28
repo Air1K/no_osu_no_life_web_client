@@ -1,33 +1,29 @@
 .head
-  opacity: 0.7
+  opacity: 0.8
   padding-left: 15px
   padding-right: 15px
-  backdrop-filter: blur(5px)
-  -webkit-backdrop-filter: blur(5px)
 
-.head::after
-  content: ""
-  position: absolute
-  z-index: -1
-  top: 0
-  left: 0
-  bottom: 0
-  right: 0
-  backdrop-filter: blur(7px)
-  -webkit-backdrop-filter: blur(7px)
-//.blure
+//.head::before
+//  content: ""
 //  position: absolute
 //  top: 0
 //  left: 0
-//  bottom: 0
 //  right: 0
+//  bottom: 0
 //  backdrop-filter: blur(5px)
 //  -webkit-backdrop-filter: blur(5px)
-//  z-index: -1
+.blure
+  position: fixed
+  backdrop-filter: blur(15px)
+  -webkit-backdrop-filter: blur(15px)
 
 .heads
   max-width: 1500px
 
 .login
   width: 82px
+
+
+
+
 

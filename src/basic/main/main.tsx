@@ -5,7 +5,6 @@ import {Container} from "react-bootstrap";
 const Main = () => {
     return (
         <div>
-
                 <Logo/>
 
             <main>
