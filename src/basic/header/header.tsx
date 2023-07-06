@@ -6,7 +6,7 @@ import {BiUser} from "react-icons/bi"
 
 const Header = () => {
     return (
-        <div className={`${styles.blure} w-100`}>
+        <header className={`${styles.blure} w-100`}>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light"
                     className={`${styles.head} position-realtive w-100`}>
                 <Container className={styles.heads}>
@@ -14,8 +14,8 @@ const Header = () => {
                         No osu! - No life
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                    <Navbar.Collapse id="responsive-navbar-nav" className={"px-40"}>
-                        <Nav className="me-auto my-2 my-lg-0 text-sm-center">
+                    <Navbar.Collapse id="responsive-navbar-nav" className={"px-40 justify-content-end"}>
+                        <Nav className={`my-2 my-lg-0 text-sm-center ${styles.nav}`}>
                             <Link to="/" className={`nav-link navbar-text text-nowrap`}>Главное окно</Link>
                             <NavDropdown title="Общение" id="basic-nav-dropdown">
                                 <Link to="/discussions" className={"dropdown-item text-sm-center"}>Обсуждения</Link>
@@ -40,7 +40,7 @@ const Header = () => {
                             <Link to="/links" className={`nav-link navbar-text text-nowrap`}>О нас</Link>
                         </Nav>
 
-                        <Nav className={`mr-auto text-nowrap`}>
+                        <Nav className={`mr-auto text-nowrap ${styles.login_margin}`}>
                             <Button variant="btn btn-light"><BiUser/>log In</Button>
                             {/*<Button variant="btn btn-link">Sign Out</Button>*/}
                         </Nav>
@@ -48,7 +48,7 @@ const Header = () => {
                 </Container>
 
             </Navbar>
-        </div>
+        </header>
     );
 };
 
