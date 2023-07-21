@@ -10,7 +10,7 @@ const Header = () => {
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light"
                     className={`${styles.head} position-realtive w-100`}>
                 <Container className={styles.container_main}>
-                    <Navbar.Brand>
+                    <Navbar.Brand className={"fw-bold"}>
                         No osu! - No life
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
