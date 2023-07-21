@@ -5,6 +5,8 @@ import {Container, Row, Col, Image} from "react-bootstrap";
 import {motion} from "framer-motion";
 import MyButton from "../../button/buttonInvite/myButton";
 import AnimeGirl from '../../img/gif/AnimeGirl.gif'
+import Hmm from '../../img/hmm.png'
+import Footer from "../footer/footer";
 
 const textAnimLeft = {
     hidden: {
@@ -44,7 +46,7 @@ const Main = () => {
                     >
                         <header>
 
-                            <motion.h1 custom={0.5} variants={textAnimLeft} className="display-5"
+                            <motion.h1 custom={0.2} variants={textAnimLeft} className="display-5"
                                        style={{padding: '10vh 0 4vh'}}>
                                 Добро пожаловать на сайт по серверу "No osu!-No Life"
                             </motion.h1>
@@ -92,12 +94,21 @@ const Main = () => {
                     </motion.div>
                     <motion.div className={styles.marquee_container_div}>
                         <div className={styles.marquee_container}>
-                            <p>
-                                NO OSU! - NO LIFE - NO OSU! - NO OSU! - NO LIFE - NO OSU! -
-                            </p>
-                            <p>
-                                NO OSU! - NO LIFE - NO OSU! - NO OSU! - NO LIFE - NO OSU! -
-                            </p>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
                         </div>
 
                     </motion.div>
@@ -107,11 +118,10 @@ const Main = () => {
                     >
                         <Row>
                             <Col>
-                                <motion.h4 custom={0.5} variants={textAnimRight} className="display-6"
-                                           style={{padding: '10vh 0 4vh'}}>
+                                <motion.h4 custom={0.5} variants={textAnimLeft} className="display-6">
                                     Что тут можно делать:
                                 </motion.h4>
-                                <motion.article custom={1} variants={textAnimRight} className={`${styles.text_article}`}
+                                <motion.article custom={1} variants={textAnimLeft} className={`${styles.text_article}`}
                                                 style={{padding: '0 0 4vh'}}>
                                     <ul className={`${styles.list4b}`}>
                                         <li>Узнать подробнее про наш сервер</li>
@@ -124,27 +134,17 @@ const Main = () => {
                                     </ul>
                                 </motion.article>
                             </Col>
-                            <Col>
-                                <motion.h4 custom={0.5} variants={textAnimRight} className="display-6"
-                                           style={{padding: '10vh 0 4vh'}}>
-                                    Что тут можно делать:
-                                </motion.h4>
-                                <motion.article custom={1} variants={textAnimRight} className={`${styles.text_article}`}
-                                                style={{padding: '0 0 4vh'}}>
-                                    <ul className={`${styles.list4b}`}>
-                                        <li>Узнать подробнее про наш сервер</li>
-                                        <li>Обсуждать разные темы</li>
-                                        <li>Пожаловаться на участника</li>
-                                        <li>Оставлять и читать коментарии о сервере</li>
-                                        <li>Скачивать скины и карты из видео</li>
-                                        <li>Постить свои предложения по скинам и картам</li>
-                                        <li>Просматривать рейтинги по контенту</li>
-                                    </ul>
-                                </motion.article>
+                            <Col className={styles.img_container} style={{justifyContent: "flex-start"}}>
+                                <motion.div custom={0.5} variants={textAnimRight}>
+                                    <div className={styles.blur}/>
+                                    <Image src={Hmm} alt={"..."}/>
+                                </motion.div>
                             </Col>
                         </Row>
-
                     </motion.div>
+
+
+                    <Footer/>
                 </Container>
             </div>
         </main>

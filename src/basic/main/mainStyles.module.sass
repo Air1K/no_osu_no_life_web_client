@@ -2,7 +2,7 @@
 .main_block
   position: relative
   background: rgb(214,212,192)
-  background: linear-gradient(45deg, rgba(214,212,192,1) 0%, rgba(255,255,255,1) 48%)
+  background: linear-gradient(-20deg, rgb(217, 215, 207) 0%, rgb(242, 244, 253) 50%, rgba(255,255,255,1) 100%)
   z-index: 2
 
 .main_block:before
@@ -108,27 +108,36 @@
       transform: scale3d(1, 1, 1)
 
 .marquee_container_div
-  width: 100%
   position: relative
+  padding: 80px 0
 
 
 .marquee_container
-  width: 200%
   display: flex
   position: relative
+  left: -1000px
 
 
-.marquee_container > p
+.marquee_container > div
   font-size: 100px
   white-space: nowrap
+  -webkit-text-fill-color: transparent
+  -webkit-text-stroke: 3px
+  font-weight: 800
+  flex: 0 0 auto
+  justify-content: flex-start
+  padding: 0 50px
+  animation: ticker 5s linear infinite
 
 
-@keyframes marquee
+
+@keyframes ticker
   0%
-    transform: translateX(0%)
+    transform: translateZ(0%)
+  to
+    transform: translate3d(-100%,0,0)
 
-  100%
-    transform: translateX(-50%)
+
 
 
 

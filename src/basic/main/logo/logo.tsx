@@ -14,7 +14,7 @@ const Logo = memo(() => {
         logoMove(ref1, ref2)
     }, [])
 
-    const nameImg = Math.floor(Math.random() * 12);
+    const nameImg = Math.floor(Math.random() * 11);
 
 
     return (

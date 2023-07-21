@@ -13,7 +13,7 @@ import Footer from "./basic/footer/footer";
 import Main from "./basic/main/main";
 function App() {
     return (
-        <div>
+        <div style={{overflow: "hidden"}}>
             <BrowserRouter>
                 <Header/>
                 <Routes>
@@ -27,7 +27,7 @@ function App() {
                     {/*<Route path='/donation' component={window.location.href = 'https://www.facebook.com/'}/>*/}
                     <Route path={"/:pageName"} element={<PageNotFound/>}/>
                 </Routes>
-                <Footer/>
+                {/*<Footer/>*/}
             </BrowserRouter>
         </div>
     );
