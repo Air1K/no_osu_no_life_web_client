@@ -1,6 +1,8 @@
+
 .main_block
   position: relative
-  background: rgb(255,255,255)
+  background: rgb(214,212,192)
+  background: linear-gradient(45deg, rgba(214,212,192,1) 0%, rgba(255,255,255,1) 48%)
   z-index: 2
 
 .main_block:before
@@ -105,13 +107,29 @@
       opacity: 1
       transform: scale3d(1, 1, 1)
 
-//.list4b:before
-//  content: ''
-//  position: absolute
-//  top: 20px
-//  left: 30px
-//  bottom: 20px
-//  border: 1.5px solid #9d9a9a
+.marquee_container_div
+  width: 100%
+  position: relative
+
+
+.marquee_container
+  width: 200%
+  display: flex
+  position: relative
+
+
+.marquee_container > p
+  font-size: 100px
+  white-space: nowrap
+
+
+@keyframes marquee
+  0%
+    transform: translateX(0%)
+
+  100%
+    transform: translateX(-50%)
+
 
 
 

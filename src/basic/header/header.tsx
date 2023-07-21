@@ -9,7 +9,7 @@ const Header = () => {
         <header className={`${styles.blure} w-100`}>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light"
                     className={`${styles.head} position-realtive w-100`}>
-                <Container className={styles.heads}>
+                <Container className={styles.container_main}>
                     <Navbar.Brand>
                         No osu! - No life
                     </Navbar.Brand>

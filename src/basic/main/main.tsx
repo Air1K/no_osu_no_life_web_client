@@ -32,7 +32,6 @@ const textAnimRight = {
 }
 
 
-
 const Main = () => {
     return (
         <main>
@@ -43,49 +42,64 @@ const Main = () => {
                                 whileInView={"visible"}
                                 viewport={{amount: 0.2, once: false}}
                     >
-                    <header>
+                        <header>
 
                             <motion.h1 custom={0.5} variants={textAnimLeft} className="display-5"
                                        style={{padding: '10vh 0 4vh'}}>
                                 Добро пожаловать на сайт по серверу "No osu!-No Life"
                             </motion.h1>
 
-                    </header>
-                    <Row>
-                        <Col className={styles.col_1}>
-                            <Row>
-                                <motion.div
-                                >
-                                    <motion.article custom={0.5} variants={textAnimLeft}
-                                                    className={`${styles.text_article} `}>
-                                        <p>Приветствую всех, кто решил посетить наш сайт по Discord каналу "No osu!-No
-                                            Life"! Здесь вы найдете всю необходимую информацию о нашем канале, его
-                                            правилах и особенностях.</p>
-                                    </motion.article>
-                                    <motion.hr custom={0.5} variants={textAnimLeft}/>
-                                    <motion.article custom={0.5} variants={textAnimLeft}
-                                                    className={`${styles.text_article} `}>
-                                        <p>Наш канал создан для общения и обмена информацией между людьми, которые
-                                            интересуются определенной тематикой или просто хотят найти новых друзей. Мы
-                                            предлагаем вам присоединиться к нашему сообществу и провести время в уютной
-                                            и дружественной атмосфере. Присоединяйтесь к нам и откройте для себя новые
-                                            возможности общения!</p>
-                                    </motion.article>
-                                </motion.div>
-                            </Row>
-                            <Row>
-                                <motion.div custom={0.5} variants={textAnimLeft}>
-                                    <MyButton/>
-                                </motion.div>
-                            </Row>
-                        </Col>
-                        <Col className={styles.img_container}>
+                        </header>
+                        <Row>
+                            <Col className={styles.col_1}>
+                                <Row>
+                                    <motion.div
+                                    >
+                                        <motion.article custom={0.5} variants={textAnimLeft}
+                                                        className={`${styles.text_article} `}>
+                                            <p>Приветствую всех, кто решил посетить наш сайт по Discord каналу "No
+                                                osu!-No
+                                                Life"! Здесь вы найдете всю необходимую информацию о нашем канале, его
+                                                правилах и особенностях.</p>
+                                        </motion.article>
+                                        <motion.hr custom={0.5} variants={textAnimLeft}/>
+                                        <motion.article custom={0.5} variants={textAnimLeft}
+                                                        className={`${styles.text_article} `}>
+                                            <p>Наш канал создан для общения и обмена информацией между людьми, которые
+                                                интересуются определенной тематикой или просто хотят найти новых друзей.
+                                                Мы
+                                                предлагаем вам присоединиться к нашему сообществу и провести время в
+                                                уютной
+                                                и дружественной атмосфере. Присоединяйтесь к нам и откройте для себя
+                                                новые
+                                                возможности общения!</p>
+                                        </motion.article>
+                                    </motion.div>
+                                </Row>
+                                <Row>
+                                    <motion.div custom={0.5} variants={textAnimLeft}>
+                                        <MyButton/>
+                                    </motion.div>
+                                </Row>
+                            </Col>
+                            <Col className={styles.img_container}>
                                 <motion.div custom={0.5} variants={textAnimRight}>
                                     <div className={styles.blur}/>
                                     <Image src={AnimeGirl} alt={"..."}/>
                                 </motion.div>
-                        </Col>
-                    </Row>
+                            </Col>
+                        </Row>
+                    </motion.div>
+                    <motion.div className={styles.marquee_container_div}>
+                        <div className={styles.marquee_container}>
+                            <p>
+                                NO OSU! - NO LIFE - NO OSU! - NO OSU! - NO LIFE - NO OSU! -
+                            </p>
+                            <p>
+                                NO OSU! - NO LIFE - NO OSU! - NO OSU! - NO LIFE - NO OSU! -
+                            </p>
+                        </div>
+
                     </motion.div>
                     <motion.div initial="hidden"
                                 whileInView={"visible"}
@@ -93,7 +107,22 @@ const Main = () => {
                     >
                         <Row>
                             <Col>
-
+                                <motion.h4 custom={0.5} variants={textAnimRight} className="display-6"
+                                           style={{padding: '10vh 0 4vh'}}>
+                                    Что тут можно делать:
+                                </motion.h4>
+                                <motion.article custom={1} variants={textAnimRight} className={`${styles.text_article}`}
+                                                style={{padding: '0 0 4vh'}}>
+                                    <ul className={`${styles.list4b}`}>
+                                        <li>Узнать подробнее про наш сервер</li>
+                                        <li>Обсуждать разные темы</li>
+                                        <li>Пожаловаться на участника</li>
+                                        <li>Оставлять и читать коментарии о сервере</li>
+                                        <li>Скачивать скины и карты из видео</li>
+                                        <li>Постить свои предложения по скинам и картам</li>
+                                        <li>Просматривать рейтинги по контенту</li>
+                                    </ul>
+                                </motion.article>
                             </Col>
                             <Col>
                                 <motion.h4 custom={0.5} variants={textAnimRight} className="display-6"
@@ -101,7 +130,7 @@ const Main = () => {
                                     Что тут можно делать:
                                 </motion.h4>
                                 <motion.article custom={1} variants={textAnimRight} className={`${styles.text_article}`}
-                                           style={{padding: '0 0 4vh'}}>
+                                                style={{padding: '0 0 4vh'}}>
                                     <ul className={`${styles.list4b}`}>
                                         <li>Узнать подробнее про наш сервер</li>
                                         <li>Обсуждать разные темы</li>
