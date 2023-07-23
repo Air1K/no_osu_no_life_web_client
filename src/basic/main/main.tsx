@@ -7,32 +7,8 @@ import MyButton from "../../button/buttonInvite/myButton";
 import AnimeGirl from '../../img/gif/AnimeGirl.gif'
 import Hmm from '../../img/hmm.png'
 import Footer from "../footer/footer";
-
-const textAnimLeft = {
-    hidden: {
-        x: -100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom * 0.2}
-    }),
-
-}
-
-const textAnimRight = {
-    hidden: {
-        x: 100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom * 0.2}
-    }),
-}
-
+import AdminInfo from "./admin_info/adminInfo";
+import {textAnimLeft, textAnimRight} from '../../framer_motion/blokAnim'
 
 const Main = () => {
     return (
@@ -52,7 +28,7 @@ const Main = () => {
                             </motion.h1>
 
                         </header>
-                        <Row>
+                        <Row className={"align-items-center"}>
                             <Col className={styles.col_1}>
                                 <Row>
                                     <motion.div
@@ -115,8 +91,9 @@ const Main = () => {
                     <motion.div initial="hidden"
                                 whileInView={"visible"}
                                 viewport={{amount: 0.2, once: false}}
+                                className={styles.state_user}
                     >
-                        <Row>
+                        <Row className={"align-items-center"}>
                             <Col>
                                 <motion.h4 custom={0.5} variants={textAnimLeft} className="display-6">
                                     Что тут можно делать:
@@ -143,7 +120,7 @@ const Main = () => {
                         </Row>
                     </motion.div>
 
-
+                    <AdminInfo/>
                     <Footer/>
                 </Container>
             </div>
