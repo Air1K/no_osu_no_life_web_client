@@ -22,14 +22,14 @@ const Main = () => {
                     >
                         <header>
 
-                            <motion.h1 custom={0.2} variants={textAnimLeft} className="display-5"
-                                       style={{padding: '10vh 0 4vh'}}>
+                            <motion.h1 custom={0.2} variants={textAnimLeft} className="display-5 mb-4"
+                                       style={{paddingTop: '10vh'}}>
                                 Добро пожаловать на сайт по серверу "No osu!-No Life"
                             </motion.h1>
 
                         </header>
-                        <Row className={"align-items-center"}>
-                            <Col className={styles.col_1}>
+                        <Row>
+                            <Col className={`${styles.col_1}`}>
                                 <Row>
                                     <motion.div
                                     >
@@ -54,7 +54,7 @@ const Main = () => {
                                         </motion.article>
                                     </motion.div>
                                 </Row>
-                                <Row>
+                                <Row className={"my-auto"}>
                                     <motion.div custom={0.5} variants={textAnimLeft}>
                                         <MyButton/>
                                     </motion.div>
@@ -95,7 +95,7 @@ const Main = () => {
                     >
                         <Row className={"align-items-center"}>
                             <Col>
-                                <motion.h4 custom={0.5} variants={textAnimLeft} className="display-6">
+                                <motion.h4 custom={0.5} variants={textAnimLeft} className="display-6 mb-4">
                                     Что тут можно делать:
                                 </motion.h4>
                                 <motion.article custom={1} variants={textAnimLeft} className={`${styles.text_article}`}
@@ -112,8 +112,7 @@ const Main = () => {
                                 </motion.article>
                             </Col>
                             <Col className={styles.img_container} style={{justifyContent: "flex-start"}}>
-                                <motion.div custom={0.5} variants={textAnimRight}>
-                                    <div className={styles.blur}/>
+                                <motion.div custom={0.5} variants={textAnimRight} >
                                     <Image src={Hmm} alt={"..."}/>
                                 </motion.div>
                             </Col>

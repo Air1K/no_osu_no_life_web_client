@@ -2,7 +2,7 @@
 .main_block
   position: relative
   background: rgb(214,212,192)
-  background: linear-gradient(-20deg, rgb(217, 215, 207) 0%, rgb(242, 244, 253) 50%, rgba(255,255,255,1) 100%)
+  background: linear-gradient(45deg, rgb(217, 215, 207) 0%, rgb(242, 244, 253) 50%, rgba(255,255,255,1) 100%)
   z-index: 2
 
 .main_block:before
@@ -15,6 +15,17 @@
   background: rgb(255,255,255)
   background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 26%)
 
+.main_block:after
+  content: ""
+  position: absolute
+  z-index: -1
+  top: 10%
+  left: 0
+  right: -100%
+  bottom: 0
+  background: rgb(133,143,138)
+  background: radial-gradient(circle, rgba(133,143,138,0.4066001400560224) 0%, rgba(133,143,138,0) 43%)
+
 .text_article
   font-size: 1.2rem
 
@@ -23,6 +34,7 @@
 
 .img_container
   display: flex
+  position: relative
   justify-content: flex-end
   align-items: center
   height: 100%
@@ -31,7 +43,7 @@
   div>img
     position: relative
     z-index: 2
-    max-height: 500px
+    max-height: 400px
   div .blur
     position: absolute
     left: -40px
@@ -40,6 +52,18 @@
     top: 99%
     z-index: 3
     backdrop-filter: blur(15px)
+
+.gradient2
+  position: relative
+.gradient2:before
+  position: absolute
+  content: ""
+  top: -200%
+  left: -50%
+  right: -200%
+  bottom: -200%
+  background: rgb(252,255,190)
+  background: radial-gradient(circle, rgba(252,255,190,0.5253396358543417) 0%, rgba(148,187,233,0) 70%)
 
 .list4b
   padding: 0
@@ -108,7 +132,7 @@
 
 .marquee_container_div
   position: relative
-  padding: 80px 0
+  padding: 10vh 0
 
 
 .marquee_container
@@ -138,7 +162,7 @@
 
 
 .state_user
-  margin-bottom: 80px
+  margin-bottom: 10vh
 
 
 

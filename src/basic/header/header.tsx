@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <header className={`${styles.blure} w-100`}>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light"
-                    className={`${styles.head} position-realtive w-100`}>
+                    className={`${styles.head} position-relative w-100`}>
                 <Container className={styles.container_main}>
                     <Navbar.Brand className={"fw-bold"}>
                         No osu! - No life
