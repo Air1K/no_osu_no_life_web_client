@@ -11,6 +11,7 @@ import AdminInfo from "./admin_info/adminInfo";
 import {textAnimLeft, textAnimRight} from '../../framer_motion/blokAnim'
 
 const Main = () => {
+    console.log("рендер Main")
     return (
         <main>
             <Logo/>

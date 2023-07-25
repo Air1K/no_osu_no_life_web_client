@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {GrDiamond} from "react-icons/gr";
 import {MdEmail} from "react-icons/md";
 const Footer = () => {
+    console.log("рендер Footer")
     return (
         <footer className={`text-center text-lg-start text-muted ${styles.footer}`}>
             <Container>

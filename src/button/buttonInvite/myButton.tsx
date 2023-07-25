@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './stylesInviteButton.module.sass'
 
 const MyButton = () => {
+    console.log("рендер MyButton")
     return (
         <a href="https://discord.gg/xcrfrJ5QsN" className={styles.border_button}>Присоединиться</a>
 

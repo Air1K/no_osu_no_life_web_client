@@ -11,7 +11,9 @@ import Links from "./basic/tab_window/links/links";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./basic/footer/footer";
 import Main from "./basic/main/main";
+import Authorization from "./basic/tab_window/authorization/Authorization";
 function App() {
+    console.log("рендер App")
     return (
         <div style={{overflow: "hidden"}}>
             <BrowserRouter>
@@ -24,6 +26,7 @@ function App() {
                     <Route path={"/discussions"} element={<Discussions/>}/>
                     <Route path={"/comments"} element={<Comments/>}/>
                     <Route path={"/links"} element={<Links/>}/>
+                    <Route path={"/authorization"} element={<Authorization/>}/>
                     {/*<Route path='/donation' component={window.location.href = 'https://www.facebook.com/'}/>*/}
                     <Route path={"/:pageName"} element={<PageNotFound/>}/>
                 </Routes>

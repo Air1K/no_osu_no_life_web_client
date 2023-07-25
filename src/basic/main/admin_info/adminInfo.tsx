@@ -3,8 +3,9 @@ import {motion} from "framer-motion";
 import {Row, Col, Image, Container, Card, Collapse, Alert} from "react-bootstrap";
 import {textAnimLeft, textAnimRight} from '../../../framer_motion/blokAnim'
 import styles from './stylesAdmin.module.sass'
-
+import {IoIosArrowDown} from 'react-icons/io'
 const AdminInfo = () => {
+    console.log("render AdminInfo")
     const [open, setOpen] = useState([{
         name: 'user1',
         userAvatar: 'https://avatars.mds.yandex.net/i?id=3a3b22b35b8ff3b5c637ace72cafd64fffef509d-7761820-images-thumbs&n=13',
@@ -159,6 +160,10 @@ const AdminInfo = () => {
                                         {user.name}
                                     </h5>
                                     {user.role} <br/> {user.status}
+                                    <div className={"d-flex justify-content-center"}>
+                                        <IoIosArrowDown className={styles.ico_drop} style={{transform: open[index].drop ? "rotate(180deg)" : "rotate(0deg)"}}/>
+                                    </div>
+
                                 </Card.Header>
                                 <Collapse in={open[index].drop}>
                                     <Collapse in={open[index].drop}>
