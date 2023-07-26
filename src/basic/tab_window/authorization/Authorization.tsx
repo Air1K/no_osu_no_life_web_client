@@ -1,45 +1,100 @@
-import React from 'react';
-import ImagesFon from "../../main/images_fon/imagesFon";
-import Footer from "../../footer/footer";
+import React, {useState} from 'react';
 import {Row, Button, Form, Col, Container} from "react-bootstrap";
 import styles from './styleAuthorization.module.sass'
+import Registration from "./Registration";
+import {validateFormLogIn} from "../../../validated/validated";
 
-const Authorization = (props) => {
+const Authorization = () => {
     console.log("рендер Authorization")
-    return (
-        <Container className={"p-5"}>
-            <Form className={`${styles.form_container} m-auto w-100`}>
-                <div className={"text-center"}><h5>Авторизация</h5></div>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email"/>
-                </Form.Group>
+    const [panelAuthorization, setPanelAuthorization] = useState(true)
+    const [form, setForm] = useState({
+        userName: '', email: '', password: '', confirmPassword: '', agreement: false, authentication: false
+    })
+    const [errors, setErrors] = useState({})
+    const [stateErrors, setStateErrors] = useState({})
+    const setField = (field, value)=>{
+        setForm({
+            ...form,
+            [field]: value
+        })
+        if(!!errors[field]){
+            setErrors({
+                ...errors,
+                [field]: null
+            })
+        }
+    }
+    const handleSubmit = (event) => {
+        const {formErrors, stateErr} = validateFormLogIn(form)
+        if(Object.keys(formErrors).length > 0){
+            event.preventDefault();
+            setErrors(formErrors)
+        }
+        setStateErrors(stateErr)
+    };
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password"/>
-                </Form.Group>
-                <Form.Group>
-                    <Row>
-                    <Col>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Не выходить"/>
+
+    return (
+        <Container className={"px-2 py-4"}>
+            {
+                panelAuthorization ?
+                    <Form className={`${styles.form_container} m-auto`} noValidate validated={!errors} onSubmit={handleSubmit}>
+                        <div className={"text-center"}><h5>Login</h5></div>
+                        <Form.Group as={Col} className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                value={form.email}
+                                onChange={(e)=>{setField('email', e.target.value)}}
+                                required type="email"
+                                placeholder="Enter email"
+                                isInvalid={!!errors['email']}
+                                isValid={stateErrors["email"]}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                                {errors['email']}
+                            </Form.Control.Feedback>
                         </Form.Group>
-                    </Col>
-                    <Col className={"d-flex justify-content-end"}>
-                        <a href={"#"} className={"link-dark"}>Восстановить пароль</a>
-                    </Col>
-                    </Row>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Button variant="outline-dark" type="submit" className={`${styles.button} w-100`}>
-                        Войти
-                    </Button>
-                </Form.Group>
-                <Form.Group className={"d-flex align-content-center justify-content-end"}>
-                    <Form.Label>Нет аккаунта?</Form.Label> &nbsp; <a href={"#"} className={"link-dark"}>Зарегистрироваться</a>
-                </Form.Group>
-            </Form>
+
+                        <Form.Group as={Col} className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                required
+                                isInvalid={!!errors['password']}
+                                type="password"
+                                onChange={(e)=>{setField('password', e.target.value)}}
+                                placeholder="Password"
+                                value={form.password}
+                                isValid={stateErrors["password"]}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                                {errors['password']}
+                            </Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            <Row>
+                                <Col xs={5}>
+                                    <Form.Group className="mb-3">
+                                        <Form.Check type="checkbox" label="Не выходить"/>
+                                    </Form.Group>
+                                </Col>
+                                <Col xs={7} className={"d-flex justify-content-end"}>
+                                    <a className={`link-dark ${styles.pointer_a}`}><strong>Восстановить пароль</strong></a>
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Button variant="outline-dark" type="submit" className={`${styles.button} w-100`}>
+                                Войти
+                            </Button>
+                        </Form.Group>
+                        <Form.Group className={"d-flex align-content-center justify-content-center"}>
+                            <Form.Label>Нет аккаунта?</Form.Label> &nbsp; <a onClick={()=>{setPanelAuthorization(false)}} className={`link-dark pe-auto ${styles.pointer_a}`}><strong>Зарегистрироваться</strong></a>
+                        </Form.Group>
+                    </Form>
+                    :
+                    <Registration setPanelAuthorization={setPanelAuthorization}/>
+            }
+
         </Container>
     );
 };

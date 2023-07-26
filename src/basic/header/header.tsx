@@ -56,7 +56,7 @@ const Header = () => {
 
             {/*--------------Модальные окна------------*/}
             <MyModal_v1 show={modalLogin}
-                        onHide={() => setModalLigin(false)}><Authorization onHide={() => setModalLigin(false)}/></MyModal_v1>
+                        onHide={() => setModalLigin(false)}><Authorization/></MyModal_v1>
         </header>
     );
 };
