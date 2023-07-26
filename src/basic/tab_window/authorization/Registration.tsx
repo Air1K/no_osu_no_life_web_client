@@ -140,7 +140,7 @@ const Registration = ({setPanelAuthorization}) => {
                         setField('authenticationSkip', !form.authenticationSkip)
                     }}
                     type="checkbox"
-                    label="Подтвердить позже"
+                    label="Подтвердить почту позже"
                 />
             </Form.Group>}
             <Form.Group as={Col} className="mb-3">
