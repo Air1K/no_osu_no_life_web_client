@@ -108,8 +108,7 @@ const Footer = () => {
                 </section>
 
                 <div className="text-center p-4" style={{backgroundColor: "rgba(0, 0, 0, 0.025)"}}>
-                    © 2021 Copyright:
-                    <a className="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                    © 2023 No osu! - No life
                 </div>
             </Container>
         </footer>
