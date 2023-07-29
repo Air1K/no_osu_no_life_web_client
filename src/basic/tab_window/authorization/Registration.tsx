@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from "./styleAuthorization.module.sass";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {validateFormSignUp} from "../../../validated/validated";
-
+import User from '../../../utils/store/user'
 
 const Registration = ({setPanelAuthorization}) => {
     console.log("рендер Registration")
@@ -11,9 +11,6 @@ const Registration = ({setPanelAuthorization}) => {
         email: '',
         password: '',
         confirmPassword: '',
-        authenticationWindow: false,
-        authenticationSkip: false,
-        code: '',
         agreement: false
     })
     const [errors, setErrors] = useState({})
@@ -32,14 +29,14 @@ const Registration = ({setPanelAuthorization}) => {
 
         console.log(value)
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const {formErrors, stateErr} = validateFormSignUp(form)
         if (Object.keys(formErrors).length > 0) {
             event.preventDefault();
             setErrors(formErrors)
-        } else {
-            setForm({...form, ["authenticationWindow"]: true})
+        }else {
+            await User.registration(form.userName, form.email, form.password, form.agreement )
         }
         setStateErrors(stateErr)
     };
@@ -115,34 +112,6 @@ const Registration = ({setPanelAuthorization}) => {
                     {errors['confirmPassword']}
                 </Form.Control.Feedback>
             </Form.Group>
-
-            {!form.authenticationSkip && form.authenticationWindow &&
-                <Form.Group as={Col} className="mb-3">
-                    <Form.Label>Подтверждение электронной почты</Form.Label>
-                    <Form.Control
-                        value={form.code}
-                        onChange={(e) => {
-                            setField('code', e.target.value)
-                        }}
-                        required type="text"
-                        placeholder="Введите код отправленный на почту"
-                        isInvalid={!!errors['code']}
-                        isValid={stateErrors["code"]}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        {errors['code']}
-                    </Form.Control.Feedback>
-                </Form.Group>}
-            {form.authenticationWindow && <Form.Group as={Col} className="mb-3">
-                <Form.Check
-                    checked={form.authenticationSkip}
-                    onChange={(e) => {
-                        setField('authenticationSkip', !form.authenticationSkip)
-                    }}
-                    type="checkbox"
-                    label="Подтвердить почту позже"
-                />
-            </Form.Group>}
             <Form.Group as={Col} className="mb-3">
                 <Form.Check
                     checked={form.agreement}
