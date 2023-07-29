@@ -119,7 +119,7 @@ const Main = () => {
                     {/*    </Row>*/}
                     {/*</motion.div>*/}
 
-                    {/*<AdminInfo/>*/}
+                    <AdminInfo/>
                     {/*<Footer/>*/}
                 </Container>
             </div>
