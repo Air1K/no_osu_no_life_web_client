@@ -69,25 +69,25 @@ const Main = () => {
                             </Col>
                         </Row>
                     </motion.div>
-                    {/*<motion.div className={styles.marquee_container_div}>*/}
-                    {/*    <div className={styles.marquee_container}>*/}
-                    {/*        <div>*/}
-                    {/*            NO OSU! - NO LIFE*/}
-                    {/*        </div>*/}
-                    {/*        <div>*/}
-                    {/*            NO OSU! - NO LIFE*/}
-                    {/*        </div>*/}
-                    {/*        <div>*/}
-                    {/*            NO OSU! - NO LIFE*/}
-                    {/*        </div>*/}
-                    {/*        <div>*/}
-                    {/*            NO OSU! - NO LIFE*/}
-                    {/*        </div>*/}
-                    {/*        <div>*/}
-                    {/*            NO OSU! - NO LIFE*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</motion.div>*/}
+                    <motion.div className={styles.marquee_container_div}>
+                        <div className={styles.marquee_container}>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                            <div>
+                                NO OSU! - NO LIFE
+                            </div>
+                        </div>
+                    </motion.div>
                     <motion.div initial="hidden"
                                 whileInView={"visible"}
                                 viewport={{amount: 0.2, once: false}}
