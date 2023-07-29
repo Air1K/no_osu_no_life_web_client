@@ -120,7 +120,7 @@ const Main = () => {
                     </motion.div>
 
                     <AdminInfo/>
-                    <Footer/>
+                    {/*<Footer/>*/}
                 </Container>
             </div>
         </main>
