@@ -111,7 +111,7 @@ const Main = () => {
                                     </ul>
                                 </motion.article>
                             </Col>
-                            <Col className={styles.img_container} style={{justifyContent: "flex-start"}}>
+                            <Col className={styles.img_container}>
                                 <motion.div custom={0.5} variants={textAnimRight} >
                                     <Image src={Hmm} alt={"..."}/>
                                 </motion.div>
