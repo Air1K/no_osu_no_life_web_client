@@ -69,57 +69,57 @@ const Main = () => {
                             </Col>
                         </Row>
                     </motion.div>
-                    <motion.div className={styles.marquee_container_div}>
-                        <div className={styles.marquee_container}>
-                            <div>
-                                NO OSU! - NO LIFE
-                            </div>
-                            <div>
-                                NO OSU! - NO LIFE
-                            </div>
-                            <div>
-                                NO OSU! - NO LIFE
-                            </div>
-                            <div>
-                                NO OSU! - NO LIFE
-                            </div>
-                            <div>
-                                NO OSU! - NO LIFE
-                            </div>
-                        </div>
-                    </motion.div>
-                    <motion.div initial="hidden"
-                                whileInView={"visible"}
-                                viewport={{amount: 0.2, once: false}}
-                                className={styles.state_user}
-                    >
-                        <Row className={"align-items-center"}>
-                            <Col>
-                                <motion.h4 custom={0.5} variants={textAnimLeft} className="display-6 mb-4">
-                                    Что тут можно делать:
-                                </motion.h4>
-                                <motion.article custom={1} variants={textAnimLeft} className={`${styles.text_article}`}
-                                                style={{padding: '0 0 4vh'}}>
-                                    <ul className={`${styles.list4b}`}>
-                                        <li>Узнать подробнее про наш сервер</li>
-                                        <li>Обсуждать разные темы</li>
-                                        <li>Пожаловаться на участника</li>
-                                        <li>Оставлять и читать коментарии о сервере</li>
-                                        <li>Скачивать скины и карты из видео</li>
-                                        <li>Постить свои предложения по скинам и картам</li>
-                                        <li>Просматривать рейтинги по контенту</li>
-                                    </ul>
-                                </motion.article>
-                            </Col>
-                            <Col className={styles.img_container}>
-                                <motion.div custom={0.5} variants={textAnimRight} >
-                                    <Image src={Hmm} alt={"..."}/>
-                                </motion.div>
-                            </Col>
-                        </Row>
-                    </motion.div>
+                    {/*<motion.div className={styles.marquee_container_div}>*/}
+                    {/*    <div className={styles.marquee_container}>*/}
+                    {/*        <div>*/}
+                    {/*            NO OSU! - NO LIFE*/}
+                    {/*        </div>*/}
+                    {/*        <div>*/}
+                    {/*            NO OSU! - NO LIFE*/}
+                    {/*        </div>*/}
+                    {/*        <div>*/}
+                    {/*            NO OSU! - NO LIFE*/}
+                    {/*        </div>*/}
+                    {/*        <div>*/}
+                    {/*            NO OSU! - NO LIFE*/}
+                    {/*        </div>*/}
+                    {/*        <div>*/}
+                    {/*            NO OSU! - NO LIFE*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*</motion.div>*/}
+                    {/*<motion.div initial="hidden"*/}
+                    {/*            whileInView={"visible"}*/}
+                    {/*            viewport={{amount: 0.2, once: false}}*/}
+                    {/*            className={styles.state_user}*/}
+                    {/*>*/}
+                    {/*    <Row className={"align-items-center"}>*/}
+                    {/*        <Col>*/}
+                    {/*            <motion.h4 custom={0.5} variants={textAnimLeft} className="display-6 mb-4">*/}
+                    {/*                Что тут можно делать:*/}
+                    {/*            </motion.h4>*/}
+                    {/*            <motion.article custom={1} variants={textAnimLeft} className={`${styles.text_article}`}*/}
+                    {/*                            style={{padding: '0 0 4vh'}}>*/}
+                    {/*                <ul className={`${styles.list4b}`}>*/}
+                    {/*                    <li>Узнать подробнее про наш сервер</li>*/}
+                    {/*                    <li>Обсуждать разные темы</li>*/}
+                    {/*                    <li>Пожаловаться на участника</li>*/}
+                    {/*                    <li>Оставлять и читать коментарии о сервере</li>*/}
+                    {/*                    <li>Скачивать скины и карты из видео</li>*/}
+                    {/*                    <li>Постить свои предложения по скинам и картам</li>*/}
+                    {/*                    <li>Просматривать рейтинги по контенту</li>*/}
+                    {/*                </ul>*/}
+                    {/*            </motion.article>*/}
+                    {/*        </Col>*/}
+                    {/*        <Col className={styles.img_container}>*/}
+                    {/*            <motion.div custom={0.5} variants={textAnimRight} >*/}
+                    {/*                <Image src={Hmm} alt={"..."}/>*/}
+                    {/*            </motion.div>*/}
+                    {/*        </Col>*/}
+                    {/*    </Row>*/}
+                    {/*</motion.div>*/}
 
-                    <AdminInfo/>
+                    {/*<AdminInfo/>*/}
                     {/*<Footer/>*/}
                 </Container>
             </div>
