@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 import styles from './header.module.sass'
-import {Navbar, Nav, Container, NavDropdown, Button} from "react-bootstrap";
+import {Navbar, Nav, Container, NavDropdown, Button, Image} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {BiUser} from "react-icons/bi"
 import MyModal_v1 from "../my_modal/MyModal_v1";
 import Authorization from "../tab_window/authorization/Authorization";
+import {observer} from "mobx-react-lite";
+import user from '../../utils/store/user'
+import UserPanel from "./user_panel/userPanel";
 
-const Header = () => {
+const Header = observer(() => {
     console.log("рендер Header")
     const [modalLogin, setModalLigin] = useState(false)
+    const [dropUserPanel, setDropUserPanel] = useState(false)
 
     return (
         <header className={`${styles.blure} w-100`}>
@@ -45,8 +49,15 @@ const Header = () => {
                             <Link to="/links" className={`nav-link navbar-text text-nowrap mx-1`}>О нас</Link>
                         </Nav>
 
-                        <Nav className={`mr-auto text-nowrap mx-1`}>
-                            <Button variant="btn btn-light" onClick={()=>{setModalLigin(true)}}><BiUser/>log In</Button>
+                        <Nav className={`text-nowrap text-sm-center ${styles.buttionLog}`}>
+                            {user.isAuth ?
+                                <UserPanel dropUserPanel={dropUserPanel} setDropUserPanel={setDropUserPanel}/>
+                                :
+                                <Button variant="btn btn-light" onClick={() => {
+                                    setModalLigin(true)
+                                }}><BiUser/>log In</Button>
+                            }
+
                             {/*<Button variant="btn btn-link">Sign Out</Button>*/}
                         </Nav>
                     </Navbar.Collapse>
@@ -55,10 +66,10 @@ const Header = () => {
             </Navbar>
 
             {/*--------------Модальные окна------------*/}
-            <MyModal_v1 show={modalLogin}
-                        onHide={() => setModalLigin(false)}><Authorization/></MyModal_v1>
+
+            {modalLogin && <MyModal_v1 show={modalLogin} onHide={() => setModalLigin(false)}><Authorization/></MyModal_v1>}
         </header>
     );
-};
+});
 
 export default Header;

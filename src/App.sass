@@ -1,24 +1,50 @@
 ::-webkit-scrollbar
   display: none
 
-@keyframes snow
-  0%
-    background-position: 0px 0px, 0px 0px, 0px 0px
 
-  100%
-    background-position: 600px 1800px, 600px 1200px, 600px 600px
-
-
-
-.sneg
-  position: absolute
-  background: url("./img/qar/background1.png"), url("./img/qar/background2.png"), url("./img/qar/background3.png")
-  filter: blur(2px)
+.snow_wrap
   height: 100vh
   width: 100vw
   top: 0
   left: 0
-  animation: snow 30s linear infinite
+  overflow: hidden
+  position: absolute
+
+
+.snow, .snow:before
+  position: absolute
+  top: -650px
+  left: 0
+  bottom: 0
+  right: 0
+  background-image: radial-gradient(4px 4px at 100px 50px, #fff , transparent), radial-gradient(6px 6px at 210px 190px, #fff, transparent), radial-gradient(3px 3px at 320px 150px, #fff 50%, transparent), radial-gradient(4px 4px at 440px 300px, #fff 50%, transparent), radial-gradient(6px 6px at 130px 500px, #fff 50%, transparent), radial-gradient(3px 3px at 50px 200px, #fff 50%, transparent), radial-gradient(4px 4px at 150px 300px, #fff 50%, transparent), radial-gradient(6px 6px at 250px 400px, #fff 50%, transparent), radial-gradient(3px 3px at 350px 500px, #fff 50%, transparent)
+  background-size: 550px 550px
+  animation: snow 5s linear infinite
+  content: ""
+
+.snow:after
+  margin-left: -250px
+  opacity: 0.5
+  filter: blur(2px)
+  animation-duration: 9s
+  animation-direction: reverse
+
+
+.snow:before
+  margin-left: -350px
+  opacity: 0.7
+  filter: blur(1px)
+  animation-duration: 7s
+  animation-direction: reverse
+
+
+@keyframes snow
+  0%
+    transform: translateY(0px) translateX(0px)
+  50%
+    transform: translateY(275px) translateX(10px)
+  100%
+    transform: translateY(550px) translateX(0px)
 
 //.modal-backdrop
 //  background-color: rgba(255, 255, 255, 0.6)
@@ -30,5 +56,10 @@
   padding: 0
   overflow-x: hidden
 
+*a
+  cursor: pointer
+
+.alertIndex
+  z-index: 999
 
 

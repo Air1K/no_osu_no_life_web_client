@@ -30,7 +30,6 @@ const Registration = ({setPanelAuthorization}) => {
         console.log(value)
     }
     const handleSubmit = async (event) => {
-        event.preventDefault();
         const {formErrors, stateErr} = validateFormSignUp(form)
         if (Object.keys(formErrors).length > 0) {
             event.preventDefault();

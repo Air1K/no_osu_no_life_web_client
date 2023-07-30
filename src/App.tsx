@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./basic/header/header";
@@ -9,11 +9,21 @@ import Discussions from "./basic/tab_window/discussions/discussions";
 import Comments from "./basic/tab_window/сomments/comments";
 import Links from "./basic/tab_window/links/links";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from "./basic/footer/footer";
+import user from "./utils/store/user";
 import Main from "./basic/main/main";
 import Authorization from "./basic/tab_window/authorization/Authorization";
+import {Alert} from "react-bootstrap";
+import {observer} from "mobx-react-lite";
 function App() {
     console.log("рендер App")
+
+    useEffect(()=> {
+        if(localStorage.getItem('token')){
+             user.checkAuth();
+        }
+    }, [])
+
+
     return (
         <div style={{overflow: "hidden"}}>
             <BrowserRouter>
@@ -27,7 +37,6 @@ function App() {
                     <Route path={"/comments"} element={<Comments/>}/>
                     <Route path={"/links"} element={<Links/>}/>
                     <Route path={"/authorization"} element={<Authorization/>}/>
-                    {/*<Route path='/donation' component={window.location.href = 'https://www.facebook.com/'}/>*/}
                     <Route path={"/:pageName"} element={<PageNotFound/>}/>
                 </Routes>
                 {/*<Footer/>*/}
@@ -36,4 +45,4 @@ function App() {
     );
 }
 
-export default App;
+export default observer(App);

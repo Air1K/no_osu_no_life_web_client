@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
-import {Row, Button, Form, Col, Container} from "react-bootstrap";
+import React, {useEffect, useState} from 'react';
+import {Row, Button, Form, Col, Container, Alert} from "react-bootstrap";
 import styles from './styleAuthorization.module.sass'
 import Registration from "./Registration";
-import {validateFormLogIn} from "../../../validated/validated";
+import {errorsForm, validateFormLogIn} from "../../../validated/validated";
+import User from "../../../utils/store/user";
+import {observer} from "mobx-react-lite";
+import user from "../../../utils/store/user";
 
-const Authorization = () => {
+const Authorization = observer(() => {
     console.log("рендер Authorization")
     const [panelAuthorization, setPanelAuthorization] = useState(true)
     const [form, setForm] = useState({
@@ -24,11 +27,19 @@ const Authorization = () => {
             })
         }
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         const {formErrors, stateErr} = validateFormLogIn(form)
         if(Object.keys(formErrors).length > 0){
             event.preventDefault();
             setErrors(formErrors)
+        } else {
+            event.preventDefault();
+            await User.login(form.email, form.password)
+            if(user.messages){
+                const {formErrors, stateErr} = errorsForm(form, user.messages)
+                setErrors(formErrors)
+                setStateErrors(stateErr)
+            }
         }
         setStateErrors(stateErr)
     };
@@ -94,10 +105,9 @@ const Authorization = () => {
                     :
                     <Registration setPanelAuthorization={setPanelAuthorization}/>
             }
-
         </Container>
     );
-};
+});
 
 export default Authorization;
 

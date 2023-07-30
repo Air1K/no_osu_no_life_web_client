@@ -1,6 +1,6 @@
 export const textAnimLeft = {
     hidden: {
-        x: -50,
+        x: -100,
         opacity: 0,
     },
     visible: custom => ({
@@ -13,7 +13,7 @@ export const textAnimLeft = {
 
 export const textAnimRight = {
     hidden: {
-        x: 50,
+        x: 100,
         opacity: 0,
     },
     visible: custom => ({

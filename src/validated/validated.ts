@@ -21,6 +21,20 @@ export const validateFormLogIn = (form)=>{
     return {formErrors, stateErr}
 }
 
+export const errorsForm = (form, massage)=>{
+    const formErrors = {}
+    const stateErr = {}
+    switch (massage){
+        case 'Пользователь с таким email не найден':
+            stateErr["email"] = false;
+            formErrors["email"] = massage;
+            break;
+        case 'Неверный пароль':
+            stateErr["password"] = false;
+            formErrors["password"] = massage;
+    }
+    return {formErrors, stateErr}
+}
 
 export const validateFormSignUp = (form) => {
     const formErrors = {}

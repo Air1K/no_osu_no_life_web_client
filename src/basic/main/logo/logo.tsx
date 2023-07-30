@@ -13,6 +13,7 @@ const Logo = memo(() => {
     const ref1 = useRef()
     const ref2 = useRef()
     useEffect(()=>{
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return;
         logoMove(ref1, ref2)
     }, [])
 
@@ -23,7 +24,9 @@ const Logo = memo(() => {
             <div className={`${styles.img_fon}`}>
                 <div className={styles.container_logo_and_img}>
                     <ImagesFon/>
-                    <div className="anim_sneg sneg"></div>
+                    <div className="snow_wrap">
+                        <div className="snow"></div>
+                    </div>
                     <Container className={`${styles.logo_container} position-absolute top-50 start-50 translate-middle`}>
                         <Image ref={ref1} src={ImgParrent} alt="Responsive image position-absolute" className={`${styles.img_parent}`}/>
                         <div className={`position-absolute top-50 start-50 translate-middle w-100 ${styles.img_children_container}`}>
