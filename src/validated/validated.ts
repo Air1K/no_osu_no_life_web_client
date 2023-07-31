@@ -21,7 +21,7 @@ export const validateFormLogIn = (form)=>{
     return {formErrors, stateErr}
 }
 
-export const errorsForm = (form, massage)=>{
+export const errorsForm = (massage)=>{
     const formErrors = {}
     const stateErr = {}
     switch (massage){
@@ -32,6 +32,10 @@ export const errorsForm = (form, massage)=>{
         case 'Неверный пароль':
             stateErr["password"] = false;
             formErrors["password"] = massage;
+            break;
+        case 'Превышен лемит подключений':
+            stateErr["limited"] = false;
+            formErrors["limited"] = massage;
     }
     return {formErrors, stateErr}
 }

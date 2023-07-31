@@ -8,6 +8,7 @@ export default new class User{
     user = {} as IUser
     isAuth = false;
     messages = '';
+    errors = [];
     isLoading = false;
     constructor() {
         makeAutoObservable(this);
@@ -25,6 +26,10 @@ export default new class User{
 
     setMessages(message: string) {
         this.messages = message;
+    }
+
+    setError(errors: []) {
+        this.errors = errors;
     }
 
     setIsLoading(bool: boolean) {
@@ -72,6 +77,7 @@ export default new class User{
         } catch (e) {
             console.log(e.response);
             this.setMessages(e.response?.data?.message);
+            this.setError(e.response?.data?.errors);
         }
     }
 

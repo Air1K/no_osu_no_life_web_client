@@ -6,10 +6,12 @@ import {errorsForm, validateFormLogIn} from "../../../validated/validated";
 import User from "../../../utils/store/user";
 import {observer} from "mobx-react-lite";
 import user from "../../../utils/store/user";
+import MyButtons from "./MyButtons";
 
 const Authorization = observer(() => {
     console.log("рендер Authorization")
     const [panelAuthorization, setPanelAuthorization] = useState(true)
+    const [timeBan, setTimeBan] = useState(-1);
     const [form, setForm] = useState({
         userName: '', email: '', password: '', confirmPassword: '', agreement: false, authentication: false
     })
@@ -27,6 +29,8 @@ const Authorization = observer(() => {
             })
         }
     }
+
+
     const handleSubmit = async (event) => {
         const {formErrors, stateErr} = validateFormLogIn(form)
         if(Object.keys(formErrors).length > 0){
@@ -36,14 +40,13 @@ const Authorization = observer(() => {
             event.preventDefault();
             await User.login(form.email, form.password)
             if(user.messages){
-                const {formErrors, stateErr} = errorsForm(form, user.messages)
+                const {formErrors, stateErr} = errorsForm(user.messages)
                 setErrors(formErrors)
                 setStateErrors(stateErr)
             }
         }
         setStateErrors(stateErr)
     };
-
 
     return (
         <Container className={"px-2 py-4"}>
@@ -94,9 +97,7 @@ const Authorization = observer(() => {
                             </Row>
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Button variant="outline-dark" type="submit" className={`${styles.button} w-100`}>
-                                Войти
-                            </Button>
+                            <MyButtons errorsMasage={errors}/>
                         </Form.Group>
                         <Form.Group className={"d-flex align-content-center justify-content-center"}>
                             <Form.Label>Нет аккаунта?</Form.Label> &nbsp; <a onClick={()=>{setPanelAuthorization(false)}} className={`link-dark pe-auto ${styles.pointer_a}`}><strong>Зарегистрироваться</strong></a>
