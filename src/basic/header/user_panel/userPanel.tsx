@@ -4,6 +4,7 @@ import styles from './styles_userPanel.module.sass'
 import user from '../../../utils/store/user'
 import {observer} from "mobx-react-lite";
 const UserPanel = ({dropUserPanel, setDropUserPanel}) => {
+    console.log("Рендер UserPanel")
     return (
         <div className={styles.container}>
             <a onClick={() => setDropUserPanel(!dropUserPanel)} className={styles.userlink}

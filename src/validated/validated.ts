@@ -36,6 +36,8 @@ export const errorsForm = (massage)=>{
         case 'Превышен лемит подключений':
             stateErr["limited"] = false;
             formErrors["limited"] = massage;
+            stateErr["password"] = false;
+            formErrors["password"] = massage;
     }
     return {formErrors, stateErr}
 }

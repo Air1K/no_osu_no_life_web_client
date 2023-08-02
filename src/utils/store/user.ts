@@ -36,6 +36,11 @@ export default new class User{
         this.isLoading = bool;
     }
 
+    setClear(){
+        this.errors = []
+        this.messages = ''
+    }
+
     async registration(userName: string, email: string, password: string, agreement: boolean) {
         try {
             console.log(userName, email, password, agreement);

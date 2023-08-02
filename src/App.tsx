@@ -29,14 +29,13 @@ function App() {
             <BrowserRouter>
                 <Header/>
                 <Routes>
-                    <Route element={<PrivateRoute/>}>
-                        <Route path={`/`} element={<Main/>}/>
-                    </Route>
+                    {/*<Route element={<PrivateRoute/>}>*/}
+                    {/*    <Route path={`/`} element={<Main/>}/>*/}
+                    {/*</Route>*/}
                     <Route path={"/"} element={<Main/>}/>
                     <Route path={"/discussions"} element={<Discussions/>}/>
                     <Route path={"/comments"} element={<Comments/>}/>
                     <Route path={"/links"} element={<Links/>}/>
-                    <Route path={"/authorization"} element={<Authorization/>}/>
                     <Route path={"/:pageName"} element={<PageNotFound/>}/>
                 </Routes>
                 {/*<Footer/>*/}
