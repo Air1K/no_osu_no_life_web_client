@@ -6,9 +6,10 @@ import {errorsForm, validateFormLogIn} from "../../../validated/validated";
 import User from "../../../utils/store/user";
 import {observer} from "mobx-react-lite";
 import user from "../../../utils/store/user";
+import MyButton from "../../../button/buttonInvite/myButton";
+import AuthButton from "../../../button/authButton";
 
-
-const Authorization = observer(() => {
+const Authorization = ({setModalLigin}) => {
     console.log("рендер Authorization")
     const [panelAuthorization, setPanelAuthorization] = useState(true)
     const [form, setForm] = useState({
@@ -29,49 +30,27 @@ const Authorization = observer(() => {
         }
     }
 
-    let interval
-    const [timer, setTimer] = useState(0)
-    // console.log(user?.errors[0], "AAAAAAAAA")
-    useEffect(()=>{
-        console.log("event")
-        if(!!errors["limited"]){
-            interval = setInterval(()=>{
-                setTimer(timer-1)
-            }, 1000)
-        }
-        return ()=>{
-            clearInterval(interval)
-        }
-
-    }, [timer])
-
-    function delTimer(){
-        const time = Number(user.errors[0].dateBan) * 1000;
-        console.log(time)
-        setTimeout(() => { clearInterval(interval); user.setClear(); setErrors({}); setStateErrors({})}, time);
-    }
     const handleSubmit = async (event) => {
-        let error = false;
         const {formErrors, stateErr} = validateFormLogIn(form)
+
         if(Object.keys(formErrors).length > 0){
-            // error = true
             setErrors(formErrors)
         } else {
+            event.preventDefault();
+            await User.login(form.email, form.password).then(()=>{
+                setModalLigin(false);
+                console.log("Выполнил then")
+            }).catch(()=>{
 
-            await User.login(form.email, form.password)
+            })
             console.log(user.messages === '', "<---Проверка messages")
             if(user.messages){
-                error = true
-                if(error){
-                    event.preventDefault();
-                }
                 const {formErrors, stateErr} = errorsForm(user.messages)
                 setErrors(formErrors)
                 setStateErrors(stateErr)
-                if(user.errors[0]?.dateBan){
-                    setTimer(user.errors[0]?.dateBan)
-                    delTimer()
-                }
+            } else {
+
+                console.log("Закрыл")
             }
         }
         setStateErrors(stateErr)
@@ -128,10 +107,7 @@ const Authorization = observer(() => {
                             </Row>
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Button variant={timer>0 ? "outline-danger": "outline-dark"} type="submit" disabled={timer>0} className={`w-100`} >
-                                {!!errors["limited"] ? `Осталось: ${timer} сек.`  :"Войти" }
-                            </Button>
-                            {/*<MyButtons  errorsMasage={errors} attempt={user.errors[0].attempt} dateBan={user.errors[0].dateBan}/>*/}
+                            <AuthButton  errorsMasage={errors} setErrors={setErrors} setStateErrors={setStateErrors}/>
                         </Form.Group>
                         <Form.Group className={"d-flex align-content-center justify-content-center"}>
                             <Form.Label>Нет аккаунта?</Form.Label> &nbsp; <a onClick={()=>{setPanelAuthorization(false)}} className={`link-dark pe-auto ${styles.pointer_a}`}><strong>Зарегистрироваться</strong></a>
@@ -142,9 +118,9 @@ const Authorization = observer(() => {
             }
         </Container>
     );
-});
+};
 
-export default Authorization;
+export default observer(Authorization);
 
 // {/*<div className={styles.container_img}>*/}
 // {/*    <ImagesFon/>*/}

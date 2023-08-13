@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import Logo from "./logo/logo";
 import styles from './mainStyles.module.sass'
 import {Container, Row, Col, Image} from "react-bootstrap";

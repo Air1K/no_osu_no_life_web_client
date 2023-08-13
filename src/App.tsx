@@ -14,16 +14,9 @@ import Main from "./basic/main/main";
 import Authorization from "./basic/tab_window/authorization/Authorization";
 import {Alert} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
+import Message from "./basic/message/message";
 function App() {
     console.log("рендер App")
-
-    useEffect(()=> {
-        if(localStorage.getItem('token')){
-             user.checkAuth();
-        }
-    }, [])
-
-
     return (
         <div style={{overflow: "hidden"}}>
             <BrowserRouter>
@@ -40,8 +33,9 @@ function App() {
                 </Routes>
                 {/*<Footer/>*/}
             </BrowserRouter>
+            <Message/>
         </div>
     );
 }
 
-export default observer(App);
+export default App;

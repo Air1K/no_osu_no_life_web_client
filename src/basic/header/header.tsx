@@ -49,7 +49,7 @@ const Header = observer(() => {
                             <Link to="/links" className={`nav-link navbar-text text-nowrap mx-1`}>О нас</Link>
                         </Nav>
 
-                        <Nav className={`text-nowrap text-sm-center ${styles.buttionLog}`}>
+                        <Nav className={`text-nowrap text-sm-center align-items-center ${styles.buttionLog}`}>
                             {user.isAuth ?
                                 <UserPanel dropUserPanel={dropUserPanel} setDropUserPanel={setDropUserPanel}/>
                                 :
@@ -67,7 +67,7 @@ const Header = observer(() => {
 
             {/*--------------Модальные окна------------*/}
 
-            {modalLogin && <MyModal_v1 show={modalLogin} onHide={() => setModalLigin(false)}><Authorization/></MyModal_v1>}
+            {modalLogin && <MyModal_v1 show={modalLogin} onHide={() => setModalLigin(false)}><Authorization setModalLigin={setModalLigin}/></MyModal_v1>}
         </header>
     );
 });

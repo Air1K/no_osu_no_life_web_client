@@ -59,14 +59,12 @@ export default new class User{
         this.setIsLoading(true)
         try {
             const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true});
-            console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
-            console.log(response.data.user)
-
         } catch (e) {
-            console.log(e.response?.data?.message);
+            console.log(e);
+            throw e
         } finally {
             this.setIsLoading(false);
         }
@@ -83,6 +81,7 @@ export default new class User{
             console.log(e.response);
             this.setMessages(e.response?.data?.message);
             this.setError(e.response?.data?.errors);
+            throw e.response;
         }
     }
 
@@ -96,6 +95,17 @@ export default new class User{
             console.log(e.response?.data?.message);
         }
     }
+
+    async ping () {
+        let start = Date.now();
+
+        try {
+            await fetch("http://localhost:5000");
+        }
+        catch(err) {}
+
+        return (Date.now() - start);
+    };
     // setUser(userName: string, email: string, password: string, authentication: boolean, agreement: boolean){
     //     this.userName = userName;
     //     this.email =

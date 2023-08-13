@@ -1,15 +1,18 @@
 .container
   position: relative
+  width: 36px
 
 .userlink
   cursor: pointer
 
 .images
-  width: 30px
+  width: 36px
 
 
 .dropPanel
-  min-height: 100px
-  position: absolute
-  right: 10px
   top: 50px
+  right: 0
+
+@media (max-width: 991px)
+  .dropPanel
+    right: -50%

@@ -12,11 +12,13 @@ const UserPanel = ({dropUserPanel, setDropUserPanel}) => {
                aria-expanded={dropUserPanel}>
                 <Image src={`${user.user.userAvatar}`} className={styles.images} roundedCircle/>
             </a>
-            <div className={`position-absolute top-0 start-0`}>
+            <div className={`position-absolute bg-transparent ${styles.dropPanel}`}>
                 <Collapse in={dropUserPanel} dimension="height">
                     <div id="example-collapse-text">
                         <Card body style={{maxWidth: '400px'}}>
-                            <a onClick={()=>user.logout()}>Выйти</a>
+
+                            <a className={"nav-link navbar-text text-nowrap mx-1"}>Найстройки профиля</a>
+                            <a className={"nav-link navbar-text text-nowrap mx-1"} onClick={()=>user.logout()}>Выйти</a>
                         </Card>
                     </div>
                 </Collapse>
