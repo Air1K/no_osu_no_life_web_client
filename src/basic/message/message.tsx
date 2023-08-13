@@ -10,17 +10,19 @@ const Message = () => {
     const [classShow, setClassshow] = useState({})
     useEffect(() => {
         if (localStorage.getItem('token')) {
-                user.checkAuth().catch((e) => {
-                    if (e.code === "ERR_NETWORK") {
-                        setShow(true);
-                        setErrors(true);
-                        setClassshow(styles.show);
-                        setTimeout(() => {
-                            setShow(false)
-                        }, 15000);
-                    }
-                })
+                user.checkAuth()
         }
+        user.ping().then((num)=>{
+            console.log(num)
+        }).catch((err) => {
+            setShow(true);
+            setErrors(true);
+            setClassshow(styles.show);
+            setTimeout(() => {
+                setShow(false)
+            }, 15000);
+            console.log(err)
+        })
     }, [])
 
     return (

@@ -98,11 +98,12 @@ export default new class User{
 
     async ping () {
         let start = Date.now();
-
         try {
             await fetch("http://localhost:5000");
         }
-        catch(err) {}
+        catch(err) {
+            throw err
+        }
 
         return (Date.now() - start);
     };
